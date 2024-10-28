@@ -13,7 +13,6 @@ HOST,PORT=\"10.1.36.43\",\"9742\"
 from subprocess import run, Popen, PIPE
 from time import sleep
 import os
-
 script_path = \"$1\"
 shared_path = os.path.abspath(\"$HOME/../Shared\")
 la_path = \"$HOME/Library/LaunchAgents\"
